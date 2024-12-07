@@ -1,6 +1,6 @@
 import { pgTable, serial, text, pgEnum, boolean } from 'drizzle-orm/pg-core';
 
-const statusEnum = pgEnum('status', ['available', 'borrowed']);
+export const statusEnum = pgEnum('status', ['available', 'borrowed']);
 
 export const bookTable = pgTable('book', {
   id: serial('id').primaryKey(),
