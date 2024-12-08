@@ -1,6 +1,7 @@
 import { getAvailableBooks } from '@/utils/data';
 import BorrowButton from '@/components/burrow-button';
 
+// Renders the books page of the app with a table of available books
 export default async function BooksPage() {
   const books = await getAvailableBooks();
 

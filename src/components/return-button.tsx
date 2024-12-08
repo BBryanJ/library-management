@@ -1,6 +1,8 @@
 'use client';
 
 import { updateBorrowedBookToDB } from '@/app/actions';
+
+// Renders a button that allows the user to return a borrowed book
 export default function ReturnButton({ bookId }: { bookId: number }) {
   return (
     <button

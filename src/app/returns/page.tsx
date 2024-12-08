@@ -2,6 +2,7 @@ import { getBorrowedBooksByUser } from '@/utils/data';
 import ReturnButton from '@/components/return-button';
 import { dateFormatter } from '@/utils/dateFormatter';
 
+// Renders the returns page of the app with a table of borrowed books
 export default async function ReturnsPages() {
   const borrowedBooks = await getBorrowedBooksByUser(1);
 

@@ -2,6 +2,7 @@ import { db } from './index.ts';
 import { bookTable, UserInsert, userTable } from './schema.ts';
 import { faker } from '@faker-js/faker';
 
+// Creates test data for the database
 async function main() {
   // Create a test user
   const testUser: UserInsert = {

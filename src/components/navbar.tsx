@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// Renders a navigation bar with links to different pages
 export default function Navbar() {
   return (
     <nav className='flex flex-wrap items-center justify-between w-full max-w-screen-lg px-4 mx-auto basis-full'>

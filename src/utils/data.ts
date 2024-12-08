@@ -3,11 +3,13 @@ import { db } from '../db';
 import { bookTable, borrowedBookTable } from '../db/schema';
 import type { BookInsert as BookValues } from '../db/schema';
 
+// Gets all books from the database and returns them in an array
 export async function getBooks() {
   const books = await db.select().from(bookTable);
   return books;
 }
 
+// Gets all books marked as available from the database and returns them in an arrary
 export async function getAvailableBooks() {
   const books = await db
     .select()
@@ -16,6 +18,7 @@ export async function getAvailableBooks() {
   return books;
 }
 
+// Searches all books in the database by the given query and returns them in an array
 export async function searchBooksByQuery(query: string) {
   const books = await db
     .select()
@@ -29,10 +32,12 @@ export async function searchBooksByQuery(query: string) {
   return books;
 }
 
+// Adds a new book to the database with the given title, author, and status
 export async function addBook(book: BookValues) {
   await db.insert(bookTable).values(book);
 }
 
+// Gets all books that the user has borrowed from the database and returns them in an array
 export async function getBorrowedBooksByUser(userId: number) {
   const books = await db
     .select({
@@ -47,9 +52,10 @@ export async function getBorrowedBooksByUser(userId: number) {
   return books;
 }
 
+// Adds a new entry to the borrowedBooks table with the given userId, bookId, and dueDate. Also updates the status of the book to borrowed.
 export async function addBorrowedBook(userId: number, bookId: number) {
-  const dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 21);
+  const dueDate = new Date(); // Get the current date
+  dueDate.setDate(dueDate.getDate() + 21); // Add 21 days to the current date
   await db.insert(borrowedBookTable).values({
     userId,
     bookId,
@@ -61,6 +67,7 @@ export async function addBorrowedBook(userId: number, bookId: number) {
     .where(eq(bookTable.id, bookId));
 }
 
+// Updates the status of the book with the given bookId to available and deletes the entry from the borrowedBooks table
 export async function returnBook(bookId: number) {
   await db
     .update(bookTable)

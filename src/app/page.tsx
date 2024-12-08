@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// Renders out the home page of the app with links to the different actions available
 export default function HomePage() {
   return (
     <div className='flex flex-col items-center justify-center gap-4'>

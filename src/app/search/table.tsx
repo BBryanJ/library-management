@@ -1,8 +1,9 @@
 import BorrowButton from '@/components/burrow-button';
 import { searchBooksByQuery } from '@/utils/data';
 
+// Renders a table of search results with the given query
 export default async function Table({ query }: { query: string }) {
-  const searchedBooks = await searchBooksByQuery(query);
+  const searchedBooks = await searchBooksByQuery(query); // Get the search results based on the query (defaults to all results if no query is provided)
 
   return (
     <table className='w-3/4 border border-collapse table-auto border-slate-200'>

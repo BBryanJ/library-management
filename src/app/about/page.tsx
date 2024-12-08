@@ -1,3 +1,4 @@
+// Renders the about page of the app
 export default function AboutPage() {
   return (
     <div>
