@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Library Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple library management system built with Next.js and Drizzle ORM.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Setting up the database
 
-## Expanding the ESLint configuration
+This app uses PostgreSQL as the database. To set up the database, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Create a new PostgreSQL database.
 
-- Configure the top-level `parserOptions` property like this:
+The more simple that I created my database for this project is using the `docker-compose.yml` file included (Requires [Docker](https://docs.docker.com/get-docker/) to be installed).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```bash
+docker-compose up -d
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+If you have a local PostgreSQL server set up, you can skip this step.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+2. Set databse to DATABASE_URL environment variable
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})``;
+Change the .env.example file to .env and set the DATABASE_URL environment variable to your PostgreSQL database URL.
+
 ```
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/library_management
+
+```
+
+3. Run the database commands
+
+Run the following commands to create the database schema and seed the database with some data:
+
+```bash
+npm run db:generate
+npm run db:seed
+```
+
+### 2. Running the app
+
+To run the app, follow these steps:
+
+1. Install the dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
+
+```bash
+npm run dev
+```
+
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
+
+### 3. Using the app
+
+There are five main pages in the app:
+
+- Home: This displays all the available actions in the app (which is also on the navbar).
+- Books: This displays a list of all the available books in the library and allows the user to borrow any available book.
+- Add Book: This allows the user to add a new book to the library.
+- Search: This allows the user to search for a book by title or author, as well as borrow any available book.
+- Returns: This displays a list of all the books that the user has borrowed, along with the option to return the book.
+
+Due to the nature of the app at the time, there is no authentication or authorization implemented. For this reason, the user is always assigned the role of "Test Tester" with the user id of 1.
