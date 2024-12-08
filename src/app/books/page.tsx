@@ -1,4 +1,5 @@
 import { getAvailableBooks } from '@/utils/data';
+import BorrowButton from './burrow-button';
 
 export default async function BooksPage() {
   const books = await getAvailableBooks();
@@ -28,9 +29,7 @@ export default async function BooksPage() {
                   {book.status}
                 </td>
                 <td className='px-6 py-3 text-end'>
-                  <button className='px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-700'>
-                    Borrow
-                  </button>
+                  <BorrowButton bookId={book.id} />
                 </td>
               </tr>
             );

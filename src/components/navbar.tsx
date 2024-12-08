@@ -28,6 +28,12 @@ export default function Navbar() {
         >
           Search Books
         </Link>
+        <Link
+          href='/returns'
+          className='font-medium text-gray-600 hover:text-gray-400'
+        >
+          Return Books
+        </Link>
       </div>
       <Link
         href='/about'
