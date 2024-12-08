@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar';
 import './globals.css';
 
 export default function RootLayout({
@@ -7,7 +8,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <header className='w-full py-3 text-sm bg-white'>
+          <Navbar />
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
