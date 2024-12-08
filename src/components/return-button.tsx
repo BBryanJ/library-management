@@ -1,6 +1,6 @@
 'use client';
 
-import { updateBorrowedBookToDB } from './actions';
+import { updateBorrowedBookToDB } from '@/app/actions';
 export default function ReturnButton({ bookId }: { bookId: number }) {
   return (
     <button

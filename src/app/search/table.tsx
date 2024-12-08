@@ -1,3 +1,4 @@
+import BorrowButton from '@/components/burrow-button';
 import { searchBooksByQuery } from '@/utils/data';
 
 export default async function Table({ query }: { query: string }) {
@@ -10,6 +11,7 @@ export default async function Table({ query }: { query: string }) {
           <th className='px-6 py-3 text-start'>Title</th>
           <th className='px-6 py-3 text-start'>Author</th>
           <th className='px-6 py-3 text-start'>Status</th>
+          <th className='px-6 py-3 text-end'></th>
         </tr>
       </thead>
       <tbody className='divide-y divide-slate-200'>
@@ -23,6 +25,11 @@ export default async function Table({ query }: { query: string }) {
               <td className='px-6 py-3 whitespace-nowrap'>{book.author}</td>
               <td className='px-6 py-3 capitalize whitespace-nowrap'>
                 {book.status}
+              </td>
+              <td className='px-6 py-3 text-end'>
+                {book.status === 'available' ? (
+                  <BorrowButton bookId={book.id} />
+                ) : null}
               </td>
             </tr>
           );

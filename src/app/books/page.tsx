@@ -1,5 +1,5 @@
 import { getAvailableBooks } from '@/utils/data';
-import BorrowButton from './burrow-button';
+import BorrowButton from '@/components/burrow-button';
 
 export default async function BooksPage() {
   const books = await getAvailableBooks();

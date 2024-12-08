@@ -1,5 +1,5 @@
 import { getBorrowedBooksByUser } from '@/utils/data';
-import ReturnButton from './return-button';
+import ReturnButton from '@/components/return-button';
 import { dateFormatter } from '@/utils/dateFormatter';
 
 export default async function ReturnsPages() {
