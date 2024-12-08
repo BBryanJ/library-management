@@ -65,3 +65,6 @@ There are five main pages in the app:
 - Returns: This displays a list of all the books that the user has borrowed, along with the option to return the book.
 
 Due to the nature of the app at the time, there is no authentication or authorization implemented. For this reason, the user is always assigned the role of "Test Tester" with the user id of 1.
+
+## Entity Relationship Diagram
+![Entity Relationship Diagram](/ERD.png)
