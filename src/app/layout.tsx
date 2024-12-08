@@ -13,7 +13,7 @@ export default function RootLayout({
         <header className='w-full py-3 text-sm bg-white'>
           <Navbar />
         </header>
-        {children}
+        <div className='mt-6'>{children}</div>
       </body>
     </html>
   );
