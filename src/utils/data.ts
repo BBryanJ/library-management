@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm';
+import { eq, ilike, or } from 'drizzle-orm';
 import { db } from '../db';
 import { bookTable, borrowedBookTable } from '../db/schema';
 import type { BookInsert as BookValues } from '../db/schema';
@@ -13,6 +13,19 @@ export async function getAvailableBooks() {
     .select()
     .from(bookTable)
     .where(eq(bookTable.status, 'available'));
+  return books;
+}
+
+export async function searchBooksByQuery(query: string) {
+  const books = await db
+    .select()
+    .from(bookTable)
+    .where(
+      or(
+        ilike(bookTable.author, '%' + query + '%'),
+        ilike(bookTable.title, '%' + query + '%')
+      )
+    );
   return books;
 }
 
