@@ -9,7 +9,7 @@ services:
     container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_DB: library_management
+      POSTGRES_DB: library-management
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:

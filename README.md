@@ -4,6 +4,8 @@ This is a simple library management system built with Next.js and Drizzle ORM.
 
 ## Getting Started
 
+Run `npm install` to install the dependencies for the project.
+
 ### 1. Setting up the database
 
 This app uses PostgreSQL as the database. To set up the database, follow these steps:
@@ -23,7 +25,7 @@ If you have a local PostgreSQL server set up, you can skip this step.
 Change the .env.example file to .env and set the DATABASE_URL environment variable to your PostgreSQL database URL.
 
 ```
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/library_management
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/library-management
 
 ```
 
@@ -67,4 +69,5 @@ There are five main pages in the app:
 Due to the nature of the app at the time, there is no authentication or authorization implemented. For this reason, the user is always assigned the role of "Test Tester" with the user id of 1.
 
 ## Entity Relationship Diagram
+
 ![Entity Relationship Diagram](/ERD.png)
